@@ -1,0 +1,16 @@
+<svg width="52" height="13" viewBox="0 0 52 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Lights">
+<circle id="Traffic Light - Zoom" cx="46" cy="6.99805" r="6" fill="#5FCF65"/>
+<circle id="Traffic Light - Minimise" cx="26" cy="6.99805" r="6" fill="#F8CE52"/>
+<circle id="Traffic Light - Close" cx="6" cy="6.99805" r="6" fill="#F96057"/>
+<g id="Oval">
+<circle cx="6" cy="6.99805" r="5.75" stroke="black" stroke-opacity="0.1" stroke-width="0.5" style="mix-blend-mode:luminosity"/>
+</g>
+<g id="Oval_2">
+<circle cx="26" cy="6.99805" r="5.75" stroke="black" stroke-opacity="0.1" stroke-width="0.5" style="mix-blend-mode:luminosity"/>
+</g>
+<g id="Oval_3">
+<circle cx="46" cy="6.99805" r="5.75" stroke="black" stroke-opacity="0.1" stroke-width="0.5" style="mix-blend-mode:luminosity"/>
+</g>
+</g>
+</svg>
