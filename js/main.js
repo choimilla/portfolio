@@ -47,7 +47,6 @@ function activation(topValue) {
   }
 }
 
-
 const selectItems = document.querySelectorAll('.select li');
 const contents = document.querySelectorAll("#container > div"); //content1~4
 const ul = document.querySelectorAll(".nav")
@@ -76,9 +75,18 @@ for(let i=0; i<contents.length; i++){
   contents[i].addEventListener('wheel',e=>{
     if(e.deltaY < 0) {
       //wheel up
+      if(e.currentTarget==contents[1]){
+        makeChart(90, chart1, '#268aff');
+        makeChart(80, chart2, '#4c9cf9');
+        makeChart(70, chart3, '#84b6f1');
+        makeChart(90, chart4, '#268aff');
+        makeChart(80, chart5, '#4c9cf9');
+      }
       let prev = e.currentTarget.previousElementSibling.offsetTop;
       console.log(prev);
       activation(prev);
+    }else if (e.deltaY > 0) {
+      //wheel down
       if(e.currentTarget==contents[1]){
         makeChart(90, chart1, '#268aff');
         makeChart(80, chart2, '#4c9cf9');
@@ -86,20 +94,9 @@ for(let i=0; i<contents.length; i++){
         makeChart(90, chart4, '#268aff');
         makeChart(80, chart5, '#4c9cf9');
       }
-      
-    }else if (e.deltaY > 0) {
-      //wheel down
       let next = e.currentTarget.nextElementSibling.offsetTop;
       console.log(next);
       activation(next);
-      if(e.currentTarget==contents[1]){
-        makeChart(90, chart1, '#268aff');
-        makeChart(80, chart2, '#4c9cf9');
-        makeChart(70, chart3, '#84b6f1');
-        makeChart(90, chart4, '#268aff');
-        makeChart(80, chart5, '#4c9cf9');
-      }
-      
     }
   })
 }
