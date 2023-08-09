@@ -15,7 +15,7 @@ let devHeight = window.innerHeight;
 window.addEventListener('resize',()=>{
   devHeight = window.innerHeight;
 })
-
+//btnpress 누르면 메뉴 셀렉트 페이지 나오기
 btnPress.addEventListener("click",()=>{
   articles.forEach(item=>{
     item.classList.toggle("on");
@@ -43,10 +43,6 @@ function activation(topValue) {
         item.classList.remove("on")
       });
       contents[k].classList.add("on");    
-      // lis.forEach(item =>{
-      //   item.classList.remove("on")
-      // });
-      // lis[k].classList.add("on");
     }
   }
 }
@@ -69,12 +65,82 @@ selectItems.forEach((item, index) => {
   });
 });
 // cont2~con4 메뉴를 클릭하면 해당하는 content로 이동
-lis.forEach((item,index)=>{
-  item.addEventListener('click',()=>{
-    const targetPosition = contents[index+1].offsetTop;
-    activation(targetPosition);
+// lis.forEach((item,index)=>{
+//   item.addEventListener('click',()=>{
+//     const targetPosition = contents[index+1].offsetTop;
+//     activation(targetPosition);
+//   })
+// })
+
+for(let i=0; i<contents.length; i++){
+  contents[i].addEventListener('wheel',e=>{
+    if(e.deltaY < 0) {
+      //wheel up
+      let prev = e.currentTarget.previousElementSibling.offsetTop;
+      console.log(prev);
+      activation(prev);
+      if(e.currentTarget==contents[1]){
+        makeChart(90, chart1, '#268aff');
+        makeChart(80, chart2, '#4c9cf9');
+        makeChart(70, chart3, '#84b6f1');
+        makeChart(90, chart4, '#268aff');
+        makeChart(80, chart5, '#4c9cf9');
+      }
+      
+    }else if (e.deltaY > 0) {
+      //wheel down
+      let next = e.currentTarget.nextElementSibling.offsetTop;
+      console.log(next);
+      activation(next);
+      if(e.currentTarget==contents[1]){
+        makeChart(90, chart1, '#268aff');
+        makeChart(80, chart2, '#4c9cf9');
+        makeChart(70, chart3, '#84b6f1');
+        makeChart(90, chart4, '#268aff');
+        makeChart(80, chart5, '#4c9cf9');
+      }
+      
+    }
   })
-})
+}
+
+//도넛차트
+
+const chart1 = document.querySelector('.doughnut1');
+const chart2 = document.querySelector('.doughnut2');
+const chart3 = document.querySelector('.doughnut3');
+const chart4 = document.querySelector('.doughnut4');
+const chart5 = document.querySelector('.doughnut5');
+
+const makeChart = (percent, classname, color) => {
+  let i = 1;
+  let chartFn = setInterval(function() {
+    if (i < percent) {
+      colorFn(i, classname, color);
+      i++;
+    } else {
+      clearInterval(chartFn);
+    }
+  }, 10);
+}
+
+const colorFn = (i, classname, color) => {
+  classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #e2e2e2 " + i + "% 100%)";
+}
+
+// window.addEventListener('scroll', e=>{
+//   console.log(window.scrollY);
+//   let scrollY = window.scrollY;
+  // if (scrollY >= 1216)  {
+  //   setTimeout(
+  //     makeChart(90, chart1, '#268aff'),
+  //     makeChart(80, chart2, '#4c9cf9'),
+  //     makeChart(70, chart3, '#84b6f1'),
+  //     makeChart(90, chart4, '#268aff'),
+  //     makeChart(80, chart5, '#4c9cf9'),1000)
+  // }
+// });
+
 
 
 const workDom = document.querySelector(".work_info");
@@ -98,54 +164,31 @@ console.log(number);
 
 let indxNum = 0;
 let lastNum = pjElement.length-1;
-
+//Dom창에서 next버튼 클릭하면 슬라이드 이동
 btnNext.addEventListener("click",e=>{
-  indxNum++;
-  number = parseInt(number) + 1;
-  console.log(number);
-  numElement.innderText = number;
-
-
-  pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
-  pjTrain.style.transition="400ms"
-  if(indxNum == lastNum){
-    indxNum ==lastNum;
-    `translateX(${-movingX * indxNum}px)`
-  }
-})
-btnPrev.addEventListener("click",e=>{
-  indxNum--;
-  // number = parseInt(number) - 1;
-  pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
-  pjTrain.style.transition="400ms"
-  if(indxNum >= lastNum){
-    indxNum == 0;
+  if (indxNum < lastNum) {
+    indxNum++;
+    number = parseInt(number) + 1;
+    console.log(number);
+    numElement.innerText = "0" + number;
     pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
+    pjTrain.style.transition = "400ms"
+  }
+})
+//Dom창에서 prev버튼 클릭하면 슬라이드 이동
+btnPrev.addEventListener("click",e=>{
+  // indxNum--;
+  // number = parseInt(number) - 1;
+  if (indxNum > 0) {
+    indxNum--;
+    number = parseInt(number) - 1;
+    console.log(number);
+    numElement.innerText = "0" + number;
+    pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
+    pjTrain.style.transition = "400ms"
   }
 })
 
 
-
-
-//도넛차트
-const chart1 = document.querySelector('.doughnut1');
-const chart2 = document.querySelector('.doughnut2');
-const chart3 = document.querySelector('.doughnut3');
-
-function makeChart (percent,classname,color){
-  let i=1;
-  let chartFn = setInterval(function(){
-    if(i<=percent){
-      colorFn(i,classname,color);
-      i++;
-    } else {
-      clearInterval(chartFn);
-    }
-  },10);
-}
-
-function colorFn (i,classname,color){
-  classname.style.background = "conic-gradient("+color+"0%"+i+"%,#fff"+i+"100%)";
-}
 
 
