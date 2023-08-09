@@ -63,19 +63,14 @@ selectItems.forEach((item, index) => {
     activation(targetPosition);
   });
 });
-// cont2~con4 메뉴를 클릭하면 해당하는 content로 이동
-// lis.forEach((item,index)=>{
-//   item.addEventListener('click',()=>{
-//     const targetPosition = contents[index+1].offsetTop;
-//     activation(targetPosition);
-//   })
-// })
+
 
 for(let i=0; i<contents.length; i++){
   contents[i].addEventListener('wheel',e=>{
     if(e.deltaY < 0) {
       //wheel up
-      if(e.currentTarget==contents[1]){
+      if(e.currentTarget==contents[0]){
+        // console.log(e.currentTarget);
         makeChart(90, chart1, '#268aff');
         makeChart(80, chart2, '#4c9cf9');
         makeChart(70, chart3, '#84b6f1');
@@ -87,7 +82,8 @@ for(let i=0; i<contents.length; i++){
       activation(prev);
     }else if (e.deltaY > 0) {
       //wheel down
-      if(e.currentTarget==contents[1]){
+      if(e.currentTarget==contents[2]){
+        // console.log(e.currentTarget);
         makeChart(90, chart1, '#268aff');
         makeChart(80, chart2, '#4c9cf9');
         makeChart(70, chart3, '#84b6f1');
