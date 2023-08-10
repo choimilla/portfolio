@@ -69,7 +69,7 @@ for(let i=0; i<contents.length; i++){
   contents[i].addEventListener('wheel',e=>{
     if(e.deltaY < 0) {
       //wheel up
-      if(e.currentTarget==contents[0]){
+      if(e.currentTarget==contents[1]){
         // console.log(e.currentTarget);
         makeChart(90, chart1, '#268aff');
         makeChart(80, chart2, '#4c9cf9');

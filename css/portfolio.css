@@ -60,7 +60,7 @@ nav > ul {
   display:none;
 }
 nav > ul.on {
-  background: #fff;
+  background: url(../images/bg.png);
   position:absolute;
   left:0;
   top:0;
@@ -72,6 +72,8 @@ nav > ul.on {
   gap:60px;
   font-size:2rem;
   font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color:#fff;
 }
 nav > ul.on > li{
   cursor: pointer;
