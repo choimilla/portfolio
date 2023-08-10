@@ -134,19 +134,28 @@ const colorFn = (i, classname, color) => {
   // }
 // });
 
-
+const thumbnail = document.querySelectorAll("ul.project > li");
+console.log(thumbnail);
 
 const workDom = document.querySelector(".work_info");
 const btnEsc = document.querySelector(".btn_esc");
-
+// thumbnail.addEventListener("click",()=>{
+//   workDom.classList.add("on");
+// })
+thumbnail.forEach(item => {
+  item.addEventListener("click",()=>{
+    workDom.classList.add("on");
+  })
+});
 btnEsc.addEventListener("click",()=>{
   workDom.classList.remove("on");
 })
 
 
-const pjTrain = document.querySelector(".dom > ul");
-const pjElement = document.querySelectorAll(".dom>ul>li");
-const movingX = document.querySelector(".dom>ul>li:first-of-type").offsetWidth;
+const pjTrain = document.querySelector(".dom > .pjExplanation");
+const pjElement = document.querySelectorAll(".pjExplanation>li");
+console.log(pjElement);
+let movingX = document.querySelector(".pjExplanation>li:first-child").offsetWidth;
 console.log(movingX);
 const btnPrev = document.querySelector(".btn_prev");
 const btnNext = document.querySelector(".btn_next");
@@ -163,7 +172,7 @@ btnNext.addEventListener("click",e=>{
     indxNum++;
     number = parseInt(number) + 1;
     console.log(number);
-    numElement.innerText = "0" + number;
+    numElement.innerText = number+" / "+pjElement.length;
     pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
     pjTrain.style.transition = "400ms"
   }
@@ -176,7 +185,7 @@ btnPrev.addEventListener("click",e=>{
     indxNum--;
     number = parseInt(number) - 1;
     console.log(number);
-    numElement.innerText = "0" + number;
+    numElement.innerText = number+" / "+pjElement.length;
     pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
     pjTrain.style.transition = "400ms"
   }

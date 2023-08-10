@@ -511,17 +511,8 @@ nav > ul.on > li{
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  /* border:1px solid red; */
 }
-/* #content1 > section > article:first-of-type > h2 > img {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 1s ease 0.5s;
-}
-#content1 > section > article:first-of-type.on > h2 > img {
-  opacity: 1;
-  transform: translateX(0);
-} */
+
 #content1 > section > article:first-of-type{
   opacity: 0;
   transform: translateX(-100px);
@@ -990,16 +981,19 @@ span.center {
   backdrop-filter: blur(10px);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
-.dom > ul {
+.dom > ul.pjExplanation {
   width:300%;
   display:flex;
-  /* border:1px solid red; */
+  border:1px solid red;
+  /* padding:72px 140px; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
-.dom > ul > li {
+.dom > .pjExplanation > li {
   position:relative;
-  width:100%;
+  width:calc(100%/3);
   padding:72px 140px;
   border:1px solid blue;
   /* display: block; */
@@ -1039,26 +1033,27 @@ font-weight: 600;
 }
 .device li {
   position: absolute;
-  text-indent: -9999px;
-  overflow: hidden;
+  /* text-indent: -9999px;
+  overflow: hidden; */
   /* border:1px solid red; */
 }
+.device li.tablet > img{width:100%;}
 .pc {
   left:460px;
   width:524px;
   height:442px;
   display: inline-block;
-  background: url(../images/bing_pc_device.png) no-repeat 0 0;
-  background-size: contain;
+  /* background: url(../images/bing_pc_device.png) no-repeat 0 0;
+  background-size: contain; */
 }
 .tablet {
-  top:180px;
+  top:100px;
   left:800px;
   width:202px;
   height:279px;
   display: inline-block;
-  background: url(../images/bing_tablet_device.png) no-repeat 0 0;
-  background-size: contain;
+  /* background: url(../images/bing_tablet_device.png) no-repeat 0 0;
+  background-size: contain; */
 }
 .mobile {
   top:100px;
@@ -1066,12 +1061,15 @@ font-weight: 600;
   width:182px;
   height:324px;
   display: inline-block;
-  background: url(../images/bing_mobile_device.png) no-repeat 0 0;
-  background-size: contain;
+  /* background: url(../images/bing_mobile_device.png) no-repeat 0 0;
+  background-size: contain; */
 }
 .pagenation{
+  z-index:50;
   top:80px;
   right:50px;
+  /* top:0;
+  left:0; */
   position: absolute;
   display: flex;
   align-items: center;
@@ -1088,6 +1086,9 @@ font-weight: 600;
   cursor: pointer;
   color:#fff;
   /* font-weight: 600; */
+}
+.pagenation > li:nth-of-type(2){
+  width:50px;
 }
 .pagenation> li:first-of-type,
 .pagenation > li:last-of-type{
