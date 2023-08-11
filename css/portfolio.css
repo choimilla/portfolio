@@ -558,7 +558,7 @@ nav > ul.on > li{
   width:80vw;
   height:80vh;
   margin:0 auto;
-  border:1px solid black;
+  /* border:1px solid black; */
 }
 /* content2 */
 #content2{
@@ -655,7 +655,7 @@ font-style: normal;
 font-weight: 500;
 word-break: break-all;
 text-align: justify;
-border:1px solid red;
+/* border:1px solid red; */
 }
 
 .career_box{
@@ -676,7 +676,7 @@ border:1px solid red;
   font-weight: 700;
   line-height: normal;
   /* letter-spacing: -0.48px; */
-  margin-bottom:10px;
+  margin-bottom :10px;
 }
 .career_box >div {
   width:80%;
@@ -685,7 +685,7 @@ border:1px solid red;
 .career_box >div > dl {
   /* width:320px; */
   width:100%;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   display: flex;
   gap:16%;
   margin-bottom:16px;
@@ -730,12 +730,12 @@ border:1px solid red;
 }
 .skills_box > h3{
   width:90%;
-  margin:20px auto;
+  margin:40px auto;
 }
 .skills_box > ul {
   position: relative;
   margin:0 auto;
-  width:90%;
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -752,7 +752,8 @@ border:1px solid red;
   /* border:1px solid green; */
 }
 .skills_box > ul > li > p{
-  height:70px;
+  margin-top:10px;
+  height:50px;
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -761,8 +762,8 @@ border:1px solid red;
 /* 도넛그래프 */
 .chart {
   position: relative;
-  width:160px;
-  height:160px;
+  width:150px;
+  height:150px;
   border-radius: 50%;
   transition: 0.3s;
 }
@@ -773,8 +774,8 @@ span.center {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   text-align: center;
   line-height: 110px;
@@ -981,7 +982,7 @@ span.center {
 .dom{
   width:100%;
   height:50%;
-  background-color: #fff;:red;
+  background-color: #fff;
   background: rgba(10, 10, 10, 0.704);
   backdrop-filter: blur(10px);
   border-bottom-left-radius: 10px;
@@ -989,18 +990,17 @@ span.center {
 
   /* overflow: hidden; */
 }
-.dom > .pjExplanation {
+.dom > .pjtrain {
   width:300%;
   display:flex;
   border:1px solid red;
 }
-.dom > .pjExplanation > li {
+.dom > .pjtrain > li {
   position:relative;
   width:33.3%;
   height:80vh;
   border:1px solid blue;
-  padding:20px;
-  box-sizing: border-box;
+  /* padding:20px; */
   display:flex;
 
 }
@@ -1013,65 +1013,86 @@ span.center {
   font-family: 'Montserrat';
   text-align: center;
   letter-spacing: -1.08px;
-  border:1px solid green;
+  /* border:1px solid green; */
 }
 .project_title > strong{
   font-weight:600;
 }
-.dom > ul > li>div > dl {
-  margin-top:20px;
-  width:30%;
+.dom > .pjtrain > li > div {
+  width:40%;
+  display:flex;
+  flex-flow:column;
+  justify-content:center;
+  /* border:1px yellow solid; */
+}
+.dom > .pjtrain > li > div > dl {
+  margin:0 auto;
+  width:60%;
   color:#fff;
   font-family: 'Montserrat';
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display:flex;
   flex-flow:column;
 }
-.dom > ul > li> div >dl > dt {
+.dom > .pjtrain > li> div >dl > dt {
 width:100%;
 line-height:1.6;
 border-bottom: 1px solid;
 font-size:1.6rem;
 font-weight: 600;
+  /* border:1px solid red; */
+
 }
-.dom > ul > li> div >dl > dd{
+.dom > .pjtrain > li> div > dl > dd{
   padding:10px;
   line-height:1.6;
 }
-.device {
+.mockup_img {
   position: relative;
-  top:180px;
+  width:60%;
+  display:flex;
+  align-items: center;
+  overflow: hidden;
 }
-.device li {
-  position: absolute;
+.mockup_img > li {
+  /* position: absolute;
+  top:180px; */
+  z-index:30;
 }
-.device li.tablet > img{width:100%;}
-.pc {
-  /* left:50%; */
-  width:524px;
-  height:442px;
-  display: inline-block;
-  /* background: url(../images/bing_pc_device.png) no-repeat 0 0;
-  background-size: contain; */
+.mockup_img > .indx_page {
+  z-index:29;
+  transform: translate(-55%,10%);
+
+}
+.mockup_img > .indx_page > img {
+  width:100%;
 }
 .tablet {
-  top:100px;
-  left:800px;
+  transform: translate(-40%,20%);
+}
+.mobile{
+  transform: translate(-80%,10%);
+}
+/* 웹접근성 검사  */
+.pj_webcheck {
+  display: flex;
+  justify-content: center;
+  
+}
+.pj_webcheck > img {
+  width:60%;
+  object-fit: contain;
+}
+
+/* .pc {
+  width:524px;
+  height:442px;
+}
+.indx_page {
   width:202px;
   height:279px;
-  display: inline-block;
-  /* background: url(../images/bing_tablet_device.png) no-repeat 0 0;
-  background-size: contain; */
-}
-.mobile {
-  top:100px;
-  left:900px;
-  width:182px;
-  height:324px;
-  display: inline-block;
-  /* background: url(../images/bing_mobile_device.png) no-repeat 0 0;
-  background-size: contain; */
-}
+} */
+
 .pagenation{
   z-index:50;
   top:80px;
@@ -1126,19 +1147,6 @@ font-weight: 600;
   display: block;
 }
 
-/* pj_W3C */
-.pj_W3C{
-  display: flex;
-}
-.pj_W3C > ul {
-  display: flex;
-}
-.pj_W3C > ul > li {
-  width:50%;
-}
-.pj_W3C > ul > li > img{
-  width:100%
-}
 
 /* content4 - contact*/
 #content4{

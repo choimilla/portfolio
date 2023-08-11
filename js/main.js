@@ -136,60 +136,57 @@ const colorFn = (i, classname, color) => {
 
 const thumbnail = document.querySelectorAll("ul.project > li");
 console.log(thumbnail);
-
-const workDom = document.querySelector(".work_info");
-const btnEsc = document.querySelector(".btn_esc");
-// thumbnail.addEventListener("click",()=>{
-//   workDom.classList.add("on");
-// })
-thumbnail.forEach(item => {
-  item.addEventListener("click",()=>{
-    workDom.classList.add("on");
-  })
-});
-btnEsc.addEventListener("click",()=>{
-  workDom.classList.remove("on");
-})
-
-
-const pjTrain = document.querySelector(".dom > .pjExplanation");
-const pjElement = document.querySelectorAll(".pjExplanation>li");
-console.log(pjElement);
+const workDom = document.querySelectorAll(".work_info");
+console.log(workDom);
+// console.log(workDom[0].children[1].children[1].childElementCount);
+const btnEsc = document.querySelectorAll(".btn_esc");
 let movingX = document.querySelector(".pjExplanation>li:first-child").offsetWidth;
 console.log(movingX);
-const btnPrev = document.querySelector(".btn_prev");
-const btnNext = document.querySelector(".btn_next");
+const btnPrev = document.querySelectorAll(".btn_prev"); //6개
+console.log(btnPrev);
+const btnNext = document.querySelectorAll(".btn_next"); //6개
+console.log(btnNext);
 
-const numElement = document.querySelector(".number");
-let number = numElement.innerText;
-console.log(number);
 
-let indxNum = 0;
-let lastNum = pjElement.length-1;
-//Dom창에서 next버튼 클릭하면 슬라이드 이동
-btnNext.addEventListener("click",e=>{
-  if (indxNum < lastNum) {
-    indxNum++;
-    number = parseInt(number) + 1;
-    console.log(number);
-    numElement.innerText = number+" / "+pjElement.length;
-    pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
-    pjTrain.style.transition = "400ms"
-  }
-})
-//Dom창에서 prev버튼 클릭하면 슬라이드 이동
-btnPrev.addEventListener("click",e=>{
-  // indxNum--;
-  // number = parseInt(number) - 1;
-  if (indxNum > 0) {
-    indxNum--;
-    number = parseInt(number) - 1;
-    console.log(number);
-    numElement.innerText = number+" / "+pjElement.length;
-    pjTrain.style.transform = `translateX(${-movingX * indxNum}px)`
-    pjTrain.style.transition = "400ms"
-  }
-})
+for(let i=0; i<workDom.length; i++){
+  //썸네일 누르면 dom창 팝업되기
+  thumbnail[i].addEventListener("click",()=>{
+  workDom[i].classList.add("on")
+  // console.log(workDom[i].children[1].children[1].childElementCount);
+  })
+  // Esc버튼을 누르면 모든 워크돔의 class on 지우기
+  btnEsc[i].addEventListener("click",()=>{
+    workDom.forEach(item=>{
+      item.classList.remove("on")
+    })
+  })
+};
+
+function slideNext(train){
+    if(indxNum<lastNum){
+      train.style.transform = `translateX(${-movingX * indxNum}px)`
+      train.style.transition = "400ms"
+    }
+}
+function slidePrev(train){
+    if(indxNum>0){
+      train.style.transform = `translateX(${-movingX * indxNum}px)`
+      train.style.transition = "400ms"
+    }
+}
+
+const pjTrain = document.querySelectorAll(".danggeun"); //6개
+console.log(pjTrain);
+const pjElement = document.querySelectorAll(".danggeun>li"); 
+console.log(pjElement);
+
+
+
+//카운팅 함수 선언
+// function counting(target,elementLength){
+//   number = parseInt(number) + 1
+//   target.innerText = number+" / "+elementLength;
+// }
 
 
 
