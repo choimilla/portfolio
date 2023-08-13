@@ -36,12 +36,16 @@ header{
   z-index:20;
   position:fixed;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
   padding: 30px 100px;
-  /* color:#fff; */
+}
+nav{
+  display:flex;
 }
 .btn_ham{
+  z-index:30;
+  position: absolute;
+  top:30px;
+  right:50px;
   display: inline-block;
   width:60px;
   height:60px;
@@ -51,22 +55,26 @@ header{
   overflow: hidden;
   cursor: pointer;
 }
-
-nav{
-  display:flex;
+nav.on > .btn_ham{
+  background:url(../images/ico_close.svg);
 }
-
 nav > ul {
   display:none;
-}
-nav > ul.on {
-  background: url(../images/bg.png);
+  background-color: rgba( 255, 255, 255, 0.2 );
   position:absolute;
-  left:0;
+  right:0;
   top:0;
-  width:100vw;
+  width:0;
+  height:100vh;
+  transition: all 1.5s ease 0.5s;
+}
+nav.on > ul {
+  right:0;
+  top:0;
+  width:20vw;
   height:100vh;
   display:flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
   gap:60px;
@@ -74,11 +82,15 @@ nav > ul.on {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color:#fff;
+
 }
-nav > ul.on > li{
+nav > ul > li{
+  height:60px;
   cursor: pointer;
 }
-
+nav > ul > li:hover{
+  font-size:2.2rem
+}
 
 .wrapper {
   z-index:0;
@@ -583,14 +595,23 @@ nav > ul.on > li{
   background: rgba(255, 255, 255, 0.49);
   backdrop-filter: blur(10px);
 }
+/* 아티클1 profile*/
 .profile_box{
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap:20px;
-  
+
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease 0.5s;
 }
+#content2 > section.on > .profile_box{
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .profile_box > .left{
   /* width:17vw; */
   width:30%;
@@ -657,7 +678,7 @@ word-break: break-all;
 text-align: justify;
 /* border:1px solid red; */
 }
-
+/* 아티클2 career box */
 .career_box{
   /* width:432px; */
   width:35%;
@@ -666,6 +687,13 @@ text-align: justify;
   align-items: center;
   justify-content: center;
   font-family: Montserrat;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s ease 0.5s;
+}
+#content2 > section.on > .career_box{
+  opacity: 1;
+  transform: translateX(0);
 }
 .career_box >div > h3,
 .skills_box > h3 {
@@ -719,7 +747,7 @@ text-align: justify;
 .career_box >div > dl > dd > ul{
   margin-top:16px
 }
-/* skills box */
+/* 아티클3 skills box */
 .skills_box{
   width:100%;
   /* padding: 42px 100px 30px; */
@@ -727,6 +755,14 @@ text-align: justify;
   font-family: Montserrat;
   display: flex;
   flex-flow: column;
+
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 2.5s ease 0.5s;
+}
+#content2 > section.on > .skill_box{
+  opacity: 1;
+  transform: translateY(0);
 }
 .skills_box > h3{
   width:90%;

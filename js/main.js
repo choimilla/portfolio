@@ -42,18 +42,36 @@ function activation(topValue) {
       contents.forEach(item =>{
         item.classList.remove("on")
       });
+      // section[k].classList.add("on"); 
+
       contents[k].classList.add("on");    
     }
   }
 }
 
+const navi = document.querySelector("nav");
+const btnHam = document.querySelector(".btn_ham")
 const selectItems = document.querySelectorAll('.select li');
 const contents = document.querySelectorAll("#container > div"); //content1~4
-const ul = document.querySelectorAll(".nav")
-const lis = document.querySelectorAll(".nav li");
+// 햄버거 메뉴 
+btnHam.addEventListener("click", e => {
+  e.preventDefault();
+  if (navi.classList.contains("on")) {
+    navi.classList.remove("on");
+  } else {
+    navi.classList.add("on");
+  }
+});
 
-console.log(contents);
-console.log(lis);
+//햄버거 네비게이션 메뉴 클릭
+const lis = document.querySelectorAll("ul.nav > li");
+for(let i=0; i<lis.length; i++){
+  lis[i].addEventListener("click",(e)=>{
+    e.preventDefault();
+    body.classList.remove("on");
+    activation((i+1)*devHeight);
+    })
+  }
 
 // cont1 article2 메뉴를 클릭하면 해당되는 content로 이동
 selectItems.forEach((item, index) => {
@@ -61,41 +79,39 @@ selectItems.forEach((item, index) => {
     body.classList.remove("on");
     const targetPosition = contents[index+1].offsetTop;
     activation(targetPosition);
+    about.classList.add('on');
   });
 });
 
+const about = document.querySelector("#content2>section");
+// console.log(about.parentElement);
+// console.log(about.getBoundingClientRect().top);
+// function aboutani(){
+//   if(about.parentElement.getBoundingClientRect().top>=0){
+//     about.classList.add('on');
+//   }
+// }
 
 for(let i=0; i<contents.length; i++){
   contents[i].addEventListener('wheel',e=>{
     if(e.deltaY < 0) {
       //wheel up
-      if(e.currentTarget==contents[1]){
-        // console.log(e.currentTarget);
-        makeChart(90, chart1, '#268aff');
-        makeChart(80, chart2, '#4c9cf9');
-        makeChart(70, chart3, '#84b6f1');
-        makeChart(90, chart4, '#268aff');
-        makeChart(80, chart5, '#4c9cf9');
-      }
       let prev = e.currentTarget.previousElementSibling.offsetTop;
       console.log(prev);
       activation(prev);
+      about.classList.add('on');
+      // aboutani()
     }else if (e.deltaY > 0) {
       //wheel down
-      if(e.currentTarget==contents[2]){
-        // console.log(e.currentTarget);
-        makeChart(90, chart1, '#268aff');
-        makeChart(80, chart2, '#4c9cf9');
-        makeChart(70, chart3, '#84b6f1');
-        makeChart(90, chart4, '#268aff');
-        makeChart(80, chart5, '#4c9cf9');
-      }
       let next = e.currentTarget.nextElementSibling.offsetTop;
       console.log(next);
       activation(next);
+      about.classList.add('on');
+      // aboutani()
     }
   })
 }
+
 
 //도넛차트
 
