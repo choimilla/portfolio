@@ -1,3 +1,4 @@
+
 const articleTrain=document.querySelector("#content1 > section"); //기차
 const articles = document.querySelectorAll("#content1 > section > article"); //아티클
 const onboarding = document.querySelectorAll("#content1 > section > article:last-of-type"); //온보딩아티클
@@ -58,13 +59,16 @@ btnHam.addEventListener("click", e => {
   e.preventDefault();
   if (navi.classList.contains("on")) {
     navi.classList.remove("on");
+    header.classList.remove('on');
   } else {
     navi.classList.add("on");
+    header.classList.add('on');
   }
 });
 
 //햄버거 네비게이션 메뉴 클릭
 const lis = document.querySelectorAll("ul.nav > li");
+const header=document.querySelector("header")
 for(let i=0; i<lis.length; i++){
   lis[i].addEventListener("click",(e)=>{
     e.preventDefault();
@@ -84,6 +88,9 @@ selectItems.forEach((item, index) => {
 });
 
 const about = document.querySelector("#content2>section");
+const contTop = about.parentElement.getBoundingClientRect().top
+console.log(contTop)
+
 // console.log(about.parentElement);
 // console.log(about.getBoundingClientRect().top);
 // function aboutani(){
@@ -111,43 +118,98 @@ for(let i=0; i<contents.length; i++){
     }
   })
 }
+// 스크롤 y가 컨텐츠2 top값 보다 같거나 클때 
+window.addEventListener('scroll',e=>{
+  let scrollY = window.scrollY;
+  console.log(scrollY);
+
+  if(scrollY>=contTop){
+    about.classList.add('on');
+   setTimeout(function(){
+    run(_chart)
+   }, 800)
+  
+  }
+})
+
+'use strict'
+var $window = $(window);
+
+function run()
+{
+	var fName = arguments[0],
+		aArgs = Array.prototype.slice.call(arguments, 1);
+	try {
+		fName.apply(window, aArgs);
+	} catch(err) {
+		 
+	}
+};
+ 
+/* chart
+================================================== */
+function _chart ()
+{
+	$('.skills_box').appear(function() {
+		setTimeout(function() {
+			$('.chart').easyPieChart({
+				easing: 'easeOutElastic',
+				delay: 3000,
+				barColor: '#369670',
+				trackColor: '#fff',
+				scaleColor: false,
+				lineWidth: 22,
+				trackWidth: 22,
+				size: 160,
+				lineCap: 'round',
+				onStep: function(from, to, percent) {
+					this.el.children[0].innerHTML = Math.round(percent);
+				}
+			});
+		}, 150);
+	});
+};
+ 
+
+$(document).ready(function() {
+	run(_chart);  
+});
 
 
 //도넛차트
+// const chart1 = document.querySelector('.doughnut1');
+// const chart2 = document.querySelector('.doughnut2');
+// const chart3 = document.querySelector('.doughnut3');
+// const chart4 = document.querySelector('.doughnut4');
+// const chart5 = document.querySelector('.doughnut5');
 
-const chart1 = document.querySelector('.doughnut1');
-const chart2 = document.querySelector('.doughnut2');
-const chart3 = document.querySelector('.doughnut3');
-const chart4 = document.querySelector('.doughnut4');
-const chart5 = document.querySelector('.doughnut5');
+// const makeChart = (percent, classname, color) => {
+//   let i = 1;
+//   let chartFn = setInterval(function() {
+//     if (i < percent) {
+//       colorFn(i, classname, color);
+//       i++;
+//     } else {
+//       clearInterval(chartFn);
+//     }
+//   }, 10);
+// }
 
-const makeChart = (percent, classname, color) => {
-  let i = 1;
-  let chartFn = setInterval(function() {
-    if (i < percent) {
-      colorFn(i, classname, color);
-      i++;
-    } else {
-      clearInterval(chartFn);
-    }
-  }, 10);
-}
-
-const colorFn = (i, classname, color) => {
-  classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #e2e2e2 " + i + "% 100%)";
-}
+// const colorFn = (i, classname, color) => {
+//   classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #e2e2e2 " + i + "% 100%)";
+// }
 
 // window.addEventListener('scroll', e=>{
 //   console.log(window.scrollY);
 //   let scrollY = window.scrollY;
-  // if (scrollY >= 1216)  {
-  //   setTimeout(
-  //     makeChart(90, chart1, '#268aff'),
-  //     makeChart(80, chart2, '#4c9cf9'),
-  //     makeChart(70, chart3, '#84b6f1'),
-  //     makeChart(90, chart4, '#268aff'),
-  //     makeChart(80, chart5, '#4c9cf9'),1000)
-  // }
+//   if (scrollY >= 1216)  {
+//     setTimeout(
+//       makeChart(90, chart1, '#268aff'),
+//       makeChart(80, chart2, '#4c9cf9'),
+//       makeChart(70, chart3, '#84b6f1'),
+//       makeChart(90, chart4, '#268aff'),
+//       makeChart(80, chart5, '#4c9cf9'),1000)
+//   }
 // });
 
 const thumbnail = document.querySelectorAll("ul.project > li");

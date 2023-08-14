@@ -6,6 +6,10 @@
 <title>welcome</title>
 <link href="images/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="css/portfolio.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="plugins/jquery-2.2.4.min.js"></script>
+<script src="plugins/jquery.appear.min.js"></script>
+<script src="plugins/jquery.easypiechart.min.js"></script> 
 <script defer src="js/main.js"></script>
 </head>
 <body class="on">
@@ -13,15 +17,15 @@
   <div id="container">
     <header>
       <h1><a href=""><img src="images/logo.svg" alt=""></a></h1>
-      <nav class="">
-        <span class="btn_ham">햄버거버튼</span>
-        <ul class="nav">
-          <li>about</li>
-          <li>work</li>
-          <li>contact</li>
-        </ul>
-      </nav>
+      <span class="btn_ham">햄버거버튼</span>
     </header>
+    <nav class="">
+      <ul class="nav">
+        <li>about</li>
+        <li>work</li>
+        <li>contact</li>
+      </ul>
+    </nav>
     <ul class="wrapper">
         <li class="round"></li>
         <li class="round1"></li>
@@ -63,7 +67,7 @@
     <!-- content2 -->
     <div id="content2">
       <h2 class="blind">About</h2>
-      <section class="on">
+      <section class="">
         <div class="article_top">
           <article class="profile_box">
             <div class="left">
@@ -102,7 +106,7 @@
                   </ul>
                 </dd>
               </dl>
-              <!-- 이젠국비교육 -->
+              <!-- 이젠아카데미 -->
               <dl>
                 <dt>2023.2 ~<br/> 2023.8</dt>
                 <dd>UI UX 디자인<br/>프론트엔드 교육 과정
@@ -133,28 +137,68 @@
         </div>
         <article class="skills_box">
           <h3>Skills</h3>
-          <ul>
-            <li>
-              <div class="chart doughnut1"><span class="center">90%</span></div>
-              <p>html</p>
-            </li>
-            <li>
-              <div class="chart doughnut2"><span class="center">80%</span></div>
-              <p>css</p>
-            </li>
-            <li>
-              <div class="chart doughnut3"><span class="center">70%</span></div>
-              <p>javascript</p>
-            </li>
-            <li>
-              <div class="chart doughnut4"><span class="center">90%</span></div>
-              <p>figma</p>
-            </li>
-            <li>
-              <div class="chart doughnut5"><span class="center">80%</span></div>
-              <p>photoshop<br/>& illustrator</p>
-            </li>
-          </ul>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="skill-item center-block">
+                <div class="chart-container">
+                  <div class="chart " data-percent="90" data-bar-color="#268AFF">
+                    <span class="percent" data-after="%">90</span>
+                  </div>
+                </div>
+
+                <p>HTML</p>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="skill-item center-block">
+                <div class="chart-container">
+                  <div class="chart " data-percent="80" data-bar-color="#4C9CF9">
+                    <span class="percent" data-after="%">80</span>
+                  </div>
+                </div>
+
+                <p>CSS</p>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="skill-item center-block">
+                <div class="chart-container">
+                  <div class="chart " data-percent="70" data-bar-color="#84B6F1">
+                    <span class="percent" data-after="%">70</span>
+                  </div>
+                </div>
+
+                <p>javascript</p>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="skill-item center-block">
+                <div class="chart-container">
+                  <div class="chart " data-percent="90" data-bar-color="#268AFF">
+                    <span class="percent" data-after="%">90</span>
+                  </div>
+                </div>
+
+                <p>Figma</p>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="skill-item center-block">
+                <div class="chart-container">
+                  <div class="chart " data-percent="80" data-bar-color="#4C9CF9">
+                    <span class="percent" data-after="%">80</span>
+                  </div>
+                </div>
+
+                <p>Photoshop</p>
+              </div>
+            </div>
+          </div>
+
         </article>
       </section>
     </div>
@@ -167,28 +211,28 @@
         <article>
           <ul class="project">
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 1 - 당근마켓</p>
+              <div class="thumbnail"><p>DANGGEUN MARKET Renewal</p></div>
+              <div class="tumbnailHover"></div>
             </li>
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 2 - 빙그레</p>
+              <div class="thumbnail"><p>BINGGRAE Clone</p></div>
+              <div class="tumbnailHover"></div>
             </li>
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 3 - 플루브아</p>
+              <div class="thumbnail"><p>PLEUVIOR Clone</p></div>
+              <div class="tumbnailHover"></div>
             </li>
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 4 - 반응형 웹디자인</p>
+              <div class="thumbnail"><p>Responsive Design</p></div>
+              <div class="tumbnailHover"></div>
             </li>
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 5 - 앱 디자인</p>
+              <div class="thumbnail"><p>GOOUT App Design</p></div>
+              <div class="tumbnailHover"></div>
             </li>
             <li>
-              <div class="thumbnail"></div>
-              <p>Project 6 - GYMYARD 상담북제작</p>
+              <div class="thumbnail"><p>GYMYARD GuideBook Design</p></div>
+              <div class="tumbnailHover"></div>
             </li>
           </ul>
         </article>
@@ -381,9 +425,9 @@
                     <dt>Work Info.</dt>
                     <dd>
                       <ul>
-                        <li>기여도 Design 100%/Coding 50%</li>
-                        <li>작업기간 2month</li>
-                        <li>언어 HTML,CSS,javascript</li>
+                        <li>기여도 100%</li>
+                        <li>작업기간 1month</li>
+                        <li>언어 HTML,CSS</li>
                         <li></li>
                       </ul>
                     </dd>

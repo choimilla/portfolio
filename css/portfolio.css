@@ -9,17 +9,16 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Sonsie One', cursive;
 font-family: 'Syncopate', sans-serif;
  */
-body{font-family:'Montserrat', sans-serif;font-size: 16px; color:#000;}
+body{font-family:'Montserrat', sans-serif;font-size: 16px; color:#191919;}
 body.on{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  bottom:0;}
+  bottom:0;
+}
 a{font-family:'Montserrat'; color:#191919; text-decoration: none;}
 ul,li {list-style: none;}
-
-
 /* common */
 .background{position:absolute;}
 /* wave ani */
@@ -33,16 +32,14 @@ body {
 	overflow-x: hidden;
 }
 header{
-  z-index:20;
+  z-index:31;
   position:fixed;
   width: 100vw;
   padding: 30px 100px;
 }
-nav{
-  display:flex;
-}
+
 .btn_ham{
-  z-index:30;
+  /* z-index:99; */
   position: absolute;
   top:30px;
   right:50px;
@@ -55,20 +52,26 @@ nav{
   overflow: hidden;
   cursor: pointer;
 }
-nav.on > .btn_ham{
+header.on > .btn_ham{
   background:url(../images/ico_close.svg);
 }
-nav > ul {
-  display:none;
-  background-color: rgba( 255, 255, 255, 0.2 );
-  position:absolute;
+nav {
+  z-index: 30;
+  position:fixed;
   right:0;
   top:0;
-  width:0;
+  width:20vw;
   height:100vh;
-  transition: all 1.5s ease 0.5s;
+  transform:translateX(100%);
+  transition:all 1s ease;
 }
-nav.on > ul {
+nav.on {
+  transform: translateX(0);
+}
+nav > ul {
+  /* display:none; */
+  background-color: rgba(0, 55, 83, 0.5);
+  position:absolute;
   right:0;
   top:0;
   width:20vw;
@@ -82,11 +85,12 @@ nav.on > ul {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color:#fff;
-
 }
 nav > ul > li{
+  z-index:30;
   height:60px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 nav > ul > li:hover{
   font-size:2.2rem
@@ -525,11 +529,12 @@ nav > ul > li:hover{
 .btn_press:hover,.btn_view:hover {
   color:#003753;
   background: #fff;
-  border: 1px solid rgba(255,255,255,0.00)
+  border: 1px solid rgba(255,255,255,0.00);
+  text-decoration: none;
 }
 .btn_press {
   margin-top:72px;
-  padding: 20px 90px;
+  padding: 16px 80px;
 }
 
 #content1 > section > article:last-of-type{
@@ -605,9 +610,9 @@ nav > ul > li:hover{
 
   opacity: 0;
   transform: translateX(-100px);
-  transition: all 1s ease 0.5s;
+  transition: all 1s ease 0.2s;
 }
-#content2 > section.on > .profile_box{
+#content2 > section.on > .article_top > .profile_box{
   opacity: 1;
   transform: translateX(0);
 }
@@ -689,9 +694,9 @@ text-align: justify;
   font-family: Montserrat;
   opacity: 0;
   transform: translateX(100px);
-  transition: all 1s ease 0.5s;
+  transition: all 1s ease 0.4s;
 }
-#content2 > section.on > .career_box{
+#content2 > section.on > .article_top >.career_box{
   opacity: 1;
   transform: translateX(0);
 }
@@ -703,8 +708,7 @@ text-align: justify;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  /* letter-spacing: -0.48px; */
-  margin-bottom :10px;
+
 }
 .career_box >div {
   width:80%;
@@ -715,8 +719,7 @@ text-align: justify;
   width:100%;
   /* border: 1px solid pink; */
   display: flex;
-  gap:16%;
-  margin-bottom:16px;
+  margin:0;
 }
 .career_box >div > dl > dt {
   color: #191919;
@@ -724,8 +727,8 @@ text-align: justify;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
-  /* line-height: 80%; 16px */
   letter-spacing: -0.4px;
+  margin-right:20px;
 }
 .career_box >div > dl > dd{
   color: #191919;
@@ -744,9 +747,6 @@ text-align: justify;
   letter-spacing: 0.32px;
   /* border: 1px solid blue; */
 }
-.career_box >div > dl > dd > ul{
-  margin-top:16px
-}
 /* 아티클3 skills box */
 .skills_box{
   width:100%;
@@ -758,9 +758,9 @@ text-align: justify;
 
   opacity: 0;
   transform: translateY(100px);
-  transition: all 2.5s ease 0.5s;
+  transition: all 1s ease 0.6s;
 }
-#content2 > section.on > .skill_box{
+#content2 > section.on > .skills_box{
   opacity: 1;
   transform: translateY(0);
 }
@@ -768,7 +768,10 @@ text-align: justify;
   width:90%;
   margin:40px auto;
 }
-.skills_box > ul {
+
+/* 도넛그래프 */
+
+div.row{
   position: relative;
   margin:0 auto;
   width:100%;
@@ -776,9 +779,11 @@ text-align: justify;
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid red; */
+  text-align: center;
 }
-.skills_box > ul > li {
-  position: relative;
+
+div.row > .col-xs-12{
+  /* position: relative; */
   /* height:200px; */
   display: flex;
   flex:1;
@@ -787,38 +792,76 @@ text-align: justify;
   align-items: center;
   /* border:1px solid green; */
 }
-.skills_box > ul > li > p{
+div.row > .col-xs-12 > p {
   margin-top:10px;
   height:50px;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
   text-transform: uppercase;
-  /* border:1px solid pink; */
-}
-/* 도넛그래프 */
-.chart {
-  position: relative;
-  width:150px;
-  height:150px;
-  border-radius: 50%;
-  transition: 0.3s;
+
 }
 
-span.center {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 110px;
-  font-size: 20px;
-  font-weight: 700;
-  transform: translate(-50%, -50%); 
+.skill-item{
 }
+
+.skill-item  {
+  /* border:1px solid yellow; */
+	position: relative;
+	max-width: 160px;
+	width: 70%;
+	/* margin-bottom: 30px; */
+	color: #333;
+}
+
+.chart-container
+{
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 100%;
+	/* margin-bottom: 27px; */
+}
+
+.skill-item .chart,
+.skill-item .chart canvas
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.skill-item .chart:before
+{
+	content: "";
+	width: 0;
+	height: 100%;
+}
+
+.skill-item .chart:before,
+.skill-item .percent
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.skill-item .percent
+{
+	position: relative;
+	line-height: 1;
+	font-size: 2rem;
+	font-weight: 900;
+	z-index: 2;
+}
+
+.skill-item  .percent:after
+{
+	content: attr(data-after);
+	font-size: 20px;
+}
+      
+
 /* content3 - work */
 #content3{
   position: relative;
@@ -826,76 +869,44 @@ span.center {
   height:100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, #003753 0%, rgba(0, 118, 177, 0.50) 20.31%, rgba(255, 255, 255, 0.50) 51.56%, rgba(0, 118, 177, 0.50) 79.69%, #003753 100%);
+  background: url(../images/grain.jpg) repeat,linear-gradient(180deg, #003753 0%, rgba(0, 118, 177, 0.50) 20.31%, rgba(255, 255, 255, 0.50) 51.56%, rgba(0, 118, 177, 0.50) 79.69%, #003753 100%);
+  /* background: url(../images/noisy_background.jpg); */
+  /* backdrop-filter:inherit; */
+  background-blend-mode: multiply;
+  
 }
 #content3 > section > article{
+  border:1px solid green;
+  height:80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .project{
-  /* border:1px solid red; */
+  height:100%;
+  border:1px solid red;
+  flex:1;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-flow: row wrap;
 }
 .project > li {
-  width:32%;
-  /* border:1px blue solid; */
+  width:33%;
+  border:1px blue solid;
   cursor: pointer;
   margin-bottom:10px;
 }
-.project > li > p {
+.project > li > div > p {
   padding:8px 0;
   font-family: 'Montserrat';
   font-weight: 400;
 }
-/* p hover 효과 */
-.project > li:hover > p{
-  color:#9a9a9a;
-}
+
 /* 공통 */
 .project > li > .thumbnail{
-  min-width:400px;
-  min-height:320px;
+  /* min-width:400px; */
+  /* min-height:320px; */
   border-radius: 4px;
-}
-/* 당근마켓 */
-.project > li:first-of-type > .thumbnail{
-  position: relative;
-  background: url(../images/thumbnail_dang_normal.png) no-repeat center center;
-  background-size: cover;
-}
-/* 빙그레 */
-.project > li:nth-of-type(2) > .thumbnail{
-  position: relative;
-  background: url(../images/thumbnail_bing_normal.png) no-repeat center center;
-  background-size: cover;
-}
-/* 플르부아 */
-.project > li:nth-of-type(3) > .thumbnail{
-  position: relative;
-  background: url(../images/thumbnail_pleuv_normal.png) no-repeat center center;
-  background-size: cover;
-}
-/* 반응형 웹사이트 디자인 */
-.project > li:nth-of-type(4) > .thumbnail{
-  position: relative;
-  background: #000;
-  background-size: cover;
-}
-/* 앱디자인 */
-.project > li:nth-of-type(5) > .thumbnail{
-  position: relative;
-  /* background: #000; */
-  background: url(../images/thumbnail_goout_normal.png) no-repeat center center;
-  background-size: cover;
-}
-/* 짐야드 프로모션 상담북 제작 */
-.project > li:last-of-type > .thumbnail{
-  position: relative;
-  background: url(../images/thumbnail_gymyard_normal.png) no-repeat center center;
-  background-size: cover;
 }
 .project > li:hover > .thumbnail::after{
   position:absolute;
@@ -921,7 +932,7 @@ span.center {
   transition: all 0.3s;
 }
 .work_info.on{
-  z-index:20;
+  z-index:40;
   position:absolute;
   background: url(../images/bingpage.png) no-repeat;
   background-size: contain;
@@ -1018,7 +1029,7 @@ span.center {
 .dom{
   width:100%;
   height:50%;
-  background-color: #fff;
+  /* background-color: #fff; */
   background: rgba(10, 10, 10, 0.704);
   backdrop-filter: blur(10px);
   border-bottom-left-radius: 10px;
@@ -1034,7 +1045,7 @@ span.center {
 .dom > .pjtrain > li {
   position:relative;
   width:33.3%;
-  height:80vh;
+  height:85vh;
   border:1px solid blue;
   /* padding:20px; */
   display:flex;
@@ -1177,7 +1188,7 @@ font-weight: 600;
   bottom:5%;
   left:50%;
   transform: translateX(-50%);
-  width:130px;
+  width:auto;
   padding:16px 32px;
   text-align: center;
   display: block;
