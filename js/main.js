@@ -156,7 +156,7 @@ function _chart ()
 				easing: 'easeOutElastic',
 				delay: 3000,
 				barColor: '#369670',
-				trackColor: '#fff',
+				trackColor: '#f3f3f3',
 				scaleColor: false,
 				lineWidth: 22,
 				trackWidth: 22,
