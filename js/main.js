@@ -170,47 +170,10 @@ function _chart ()
 	});
 };
  
-
 $(document).ready(function() {
 	run(_chart);  
 });
 
-
-//도넛차트
-// const chart1 = document.querySelector('.doughnut1');
-// const chart2 = document.querySelector('.doughnut2');
-// const chart3 = document.querySelector('.doughnut3');
-// const chart4 = document.querySelector('.doughnut4');
-// const chart5 = document.querySelector('.doughnut5');
-
-// const makeChart = (percent, classname, color) => {
-//   let i = 1;
-//   let chartFn = setInterval(function() {
-//     if (i < percent) {
-//       colorFn(i, classname, color);
-//       i++;
-//     } else {
-//       clearInterval(chartFn);
-//     }
-//   }, 10);
-// }
-
-// const colorFn = (i, classname, color) => {
-//   classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #e2e2e2 " + i + "% 100%)";
-// }
-
-// window.addEventListener('scroll', e=>{
-//   console.log(window.scrollY);
-//   let scrollY = window.scrollY;
-//   if (scrollY >= 1216)  {
-//     setTimeout(
-//       makeChart(90, chart1, '#268aff'),
-//       makeChart(80, chart2, '#4c9cf9'),
-//       makeChart(70, chart3, '#84b6f1'),
-//       makeChart(90, chart4, '#268aff'),
-//       makeChart(80, chart5, '#4c9cf9'),1000)
-//   }
-// });
 
 const thumbnail = document.querySelectorAll("ul.project > li");
 console.log(thumbnail);
@@ -224,6 +187,10 @@ const btnPrev = document.querySelectorAll(".btn_prev"); //6개
 console.log(btnPrev);
 const btnNext = document.querySelectorAll(".btn_next"); //6개
 console.log(btnNext);
+const pjTrain = document.querySelectorAll(".danggeun"); //6개
+console.log(pjTrain);
+const pjElement = document.querySelectorAll(".danggeun>li"); 
+console.log(pjElement);
 
 
 for(let i=0; i<workDom.length; i++){
@@ -253,19 +220,27 @@ function slidePrev(train){
     }
 }
 
-const pjTrain = document.querySelectorAll(".danggeun"); //6개
-console.log(pjTrain);
-const pjElement = document.querySelectorAll(".danggeun>li"); 
-console.log(pjElement);
 
 
+//Dom창에서 next버튼 클릭하면 슬라이드 이동
+btnNext.addEventListener("click",e=>{
+  indxNum++;
+  if (indxNum < lastNum) {
+    // number = parseInt(number) + 1;
+    // console.log(number);
+    // numElement.innerText = number+" / "+pjElement.length;
+    slideNext(pjTrain)
+  }
+})
+//Dom창에서 prev버튼 클릭하면 슬라이드 이동
+btnPrev.addEventListener("click",e=>{
+  indxNum--;
+  if (indxNum > 0) {
+    // number = parseInt(number) - 1;
+    // console.log(number);
+    // numElement.innerText = number+" / "+pjElement.length;
+    slidePrev(pjTrain)
 
-//카운팅 함수 선언
-// function counting(target,elementLength){
-//   number = parseInt(number) + 1
-//   target.innerText = number+" / "+elementLength;
-// }
-
-
-
+  }
+})
 
