@@ -970,25 +970,30 @@ div.row > .col-xs-12 > p {
   height:100%;
   opacity: 1;
   /* transform:scale(1); */
-  background-size:cover;
 }
 .dang{
-  background: url(../images/dang_logo.png);
+  background: url(../images/dang_logo.png)50% 50%;
+  background-size:cover;
 }
 .bing{
-  background: url(../images/bing_logo.png);
+  background: url(../images/bing_logo.png)50% 50%;
+  background-size:cover;
 }
 .pleu{
-  background: url(../images/pleu_logo.png);
+  background: url(../images/pleu_logo.png)50% 50%;
+  background-size:cover;
 }
 .halland{
-  background: url(../images/haalland_thum.png);
+  background: url(../images/haalland_thum.png)50% 50%;
+  background-size:cover;
 }
 .go{
-  background: url(../images/goout_thum.png);
+  background: url(../images/goout_thum.png) 50% 50%;
+  background-size:cover;
 }
 .gym{
-  background: url(../images/gymyard_thum.png);
+  background: url(../images/gymyard_thum.png) 50% 50%;
+  background-size:cover;
 }
 
 
@@ -1188,6 +1193,21 @@ font-weight: 600;
 }
 .mobile{
   transform: translate(-80%,10%);
+  /* border:1px solid red; */
+}
+.ple_pc {
+  /* border:1px solid blue; */
+}
+.ple_pc > img {
+  width:100%;
+}
+.ple {
+  width:60%;
+  transform : translate(-40%, 36%);
+}
+.ple > img{
+  width:100%;
+  object-fit: cover;
 }
 /* 웹접근성 검사  */
 .pj_webcheck {
