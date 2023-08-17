@@ -244,3 +244,11 @@ btnPrev.addEventListener("click",e=>{
   }
 })
 
+const btnTop = document.querySelector(".topbtn");
+
+btnEsc.addEventListener('click',()=>{
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+})
