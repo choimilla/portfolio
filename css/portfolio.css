@@ -894,7 +894,7 @@ div.row > .col-xs-12 > p {
   font-family: 'Montserrat';
   font-weight: 400;
   letter-spacing: -2px;
-  font-size:1.5rem;
+  font-size:1.8rem;
   color:#fff;
   padding:8px;
   margin-bottom:20px;
@@ -1029,8 +1029,8 @@ div.row > .col-xs-12 > p {
 }
 .btn_esc{
   display: inline-block;
-  width:16px;
-  height:16px;
+  width:24px;
+  height:24px;
   background: url(../images/ico_lights.svg) no-repeat 0 50%;
   background-size: cover;
   text-indent: -9999px;
@@ -1072,6 +1072,7 @@ div.row > .col-xs-12 > p {
 .bar_icon{
   display: flex;
   gap:8px;
+  margin:0;
 }
 .bar_icon > li:first-of-type {
   display: inline-block;
@@ -1079,7 +1080,7 @@ div.row > .col-xs-12 > p {
   height:24px;
   text-indent: -9999px;
   overflow: hidden;
-  background:url(../images/ico_ele1.svg) no-repeat 0 0 ;
+  background:url(../images/ico_ele1.svg) no-repeat 50% 50% ;
   background-size:cover;
 }
 .bar_icon > li:nth-of-type(2) {
@@ -1088,7 +1089,7 @@ div.row > .col-xs-12 > p {
   height:24px;
   text-indent: -9999px;
   overflow: hidden;
-  background:url(../images/ico_ele2.svg) no-repeat 0 0 ;
+  background:url(../images/ico_ele2.svg) no-repeat 50% 50% ;
   background-size:cover;
 }
 .bar_icon > li:last-of-type {
@@ -1097,7 +1098,7 @@ div.row > .col-xs-12 > p {
   height:24px;
   text-indent: -9999px;
   overflow: hidden;
-  background:url(../images/ico_ele3.svg) no-repeat 0 0 ;
+  background:url(../images/ico_ele3.svg) no-repeat 50% 50% ;
   background-size:cover;
 }
 .dom{
@@ -1109,18 +1110,18 @@ div.row > .col-xs-12 > p {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .dom > .pjtrain {
   width:300%;
   display:flex;
-  border:1px solid red;
+  /* border:1px solid red; */
 }
 .dom > .pjtrain > li {
   position:relative;
   width:33.3%;
   height:85vh;
-  border:1px solid blue;
+  /* border:1px solid blue; */
   /* padding:20px; */
   display:flex;
 
@@ -1155,7 +1156,7 @@ div.row > .col-xs-12 > p {
   display:flex;
   flex-flow:column;
 }
-.dom > .pjtrain > li> div >dl > dt {
+.dom > .pjtrain > li> div > dl > dt {
 width:100%;
 line-height:1.6;
 border-bottom: 1px solid;
@@ -1209,6 +1210,14 @@ font-weight: 600;
   width:100%;
   object-fit: cover;
 }
+/* 홀란드 */
+.cover {
+  width:80%;
+}
+.cover > img{
+  width:100%;
+  object-fit: cover;
+}
 /* 웹접근성 검사  */
 .pj_webcheck {
   display: flex;
@@ -1216,7 +1225,7 @@ font-weight: 600;
   
 }
 .pj_webcheck > img {
-  width:60%;
+  width:100%;
   object-fit: contain;
 }
 

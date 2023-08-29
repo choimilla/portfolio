@@ -181,15 +181,16 @@ const workDom = document.querySelectorAll(".work_info");
 console.log(workDom);
 // console.log(workDom[0].children[1].children[1].childElementCount);
 const btnEsc = document.querySelectorAll(".btn_esc");
-let movingX = document.querySelector(".pjExplanation>li:first-child").offsetWidth;
-console.log(movingX);
+console.log(btnEsc);
+// let movingX = document.querySelector(".pjExplanation>li:first-child").offsetWidth;
+// console.log(movingX);
 const btnPrev = document.querySelectorAll(".btn_prev"); //6개
 console.log(btnPrev);
 const btnNext = document.querySelectorAll(".btn_next"); //6개
 console.log(btnNext);
-const pjTrain = document.querySelectorAll(".danggeun"); //6개
+const pjTrain = document.querySelectorAll(".bingg"); //6개
 console.log(pjTrain);
-const pjElement = document.querySelectorAll(".danggeun>li"); 
+const pjElement = document.querySelectorAll(".bingg>li"); 
 console.log(pjElement);
 
 
@@ -220,33 +221,45 @@ function slidePrev(train){
     }
 }
 
+for(let i=0; i<workDom.length; i++){
+  //썸네일 누르면 dom창 팝업되기
+  thumbnail[i].addEventListener("click",()=>{
+  workDom[i].classList.add("on")
+  // console.log(workDom[i].children[1].children[1].childElementCount);
+  })
+  // Esc버튼을 누르면 모든 워크돔의 class on 지우기
+  btnEsc[i].addEventListener("click",()=>{
+    workDom.forEach(item=>{
+      item.classList.remove("on")
+    })
+  })
 
-
-//Dom창에서 next버튼 클릭하면 슬라이드 이동
-btnNext.addEventListener("click",e=>{
-  indxNum++;
-  if (indxNum < lastNum) {
-    // number = parseInt(number) + 1;
-    // console.log(number);
-    // numElement.innerText = number+" / "+pjElement.length;
-    slideNext(pjTrain)
-  }
-})
-//Dom창에서 prev버튼 클릭하면 슬라이드 이동
-btnPrev.addEventListener("click",e=>{
-  indxNum--;
-  if (indxNum > 0) {
-    // number = parseInt(number) - 1;
-    // console.log(number);
-    // numElement.innerText = number+" / "+pjElement.length;
-    slidePrev(pjTrain)
-
-  }
-})
+  //Dom창에서 next버튼 클릭하면 슬라이드 이동
+  btnNext[i].addEventListener("click",e=>{
+    indxNum++;
+    if (indxNum < lastNum) {
+      // number = parseInt(number) + 1;
+      // console.log(number);
+      // numElement.innerText = number+" / "+pjElement.length;
+      slideNext(pjTrain)
+    }
+  })
+  //Dom창에서 prev버튼 클릭하면 슬라이드 이동
+  btnPrev[i].addEventListener("click",e=>{
+    indxNum--;
+    if (indxNum > 0) {
+      // number = parseInt(number) - 1;
+      // console.log(number);
+      // numElement.innerText = number+" / "+pjElement.length;
+      slidePrev(pjTrain)
+  
+    }
+  })
+};
 
 const btnTop = document.querySelector(".topbtn");
 
-btnEsc.addEventListener('click',()=>{
+btnTop.addEventListener('click',()=>{
   window.scrollTo({
     top:0,
     behavior:'smooth'
